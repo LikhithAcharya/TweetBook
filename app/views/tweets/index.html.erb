@@ -1,0 +1,66 @@
+
+<br><br><br><h1 align="center">Listing all tweets</h1>
+
+<div align="center">
+
+
+
+</div>
+
+<% @tweets.each do |tweet| %>
+
+<div class="row">
+
+<div class="col-xs-8 col-xs-offset-2">
+
+<div class="well well-lg">
+
+  <div align="center">
+       Tweeted by: <b> <%= tweet.user.username if tweet.user %> </b>
+  </div>
+
+<div class="tweet-title">
+
+<%= link_to tweet.title, tweet_path(tweet) %>
+
+</div>
+ <br>
+<div class="tweet-body">
+
+<%= truncate(tweet.description, length: 100) %>
+
+</div>
+<br>
+<div class="tweet-actions">
+  <% if logged_in? && (current_user == tweet.user || current_user.admin?) %>
+
+     <div class="tweet-actions">
+   <%= link_to "Edit this tweet", edit_tweet_path(tweet), class: "btn btn-xs btn-primary" %>
+<br>
+    <%= button_to "Delete this tweet", tweet_path(tweet), :method => :delete, :confirm => "You sure?" %> <br>
+<br>
+ </div>
+ <% end %>
+</div>
+<br>
+<div  class="tweet-meta-details">
+<br>
+<small> Tweeted on : <%= time_ago_in_words(tweet.created_at) %>  ago,
+last updated: <%= time_ago_in_words(tweet.updated_at) %>
+
+<br>
+</small>
+</div>
+
+<br>
+  <h4>comments :  <%= tweet.comments.count %></h4><br>
+<br>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<% end %>

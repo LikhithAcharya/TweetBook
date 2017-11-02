@@ -1,0 +1,41 @@
+<h1 align="center">All Twitter Users</h1>
+
+<div align="center">
+
+
+
+<% @users.each do |user| %>
+
+<ul class="listing">
+
+<div class="row">
+
+<div class="well col-md-4 col-md-offset-4">
+
+
+
+<ul class="tweet-title">
+
+<%= link_to user.username, user_path(user) %>
+
+</ul>
+
+<ul><small><%= pluralize(user.tweets.count, "tweet") if user.tweets %></small></ul>
+
+<% if logged_in? and current_user.admin? %>
+
+<li> <%= button_to "Delete this user", user_path(user), :method => :delete, :confirm => "You sure?"%>  </li>
+
+
+<% end %>
+
+
+</div>
+
+</div>
+
+</ul>
+
+<% end %>
+
+</div>

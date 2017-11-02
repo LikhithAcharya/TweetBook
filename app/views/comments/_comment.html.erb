@@ -1,0 +1,29 @@
+
+
+
+<div class="row">
+	<div class="well">
+		<div class="col-md-4 pull-left" >
+
+	  </div>
+<p>
+  <strong><%= comment.user.username %></strong> says: <%= comment.body %>
+</p>
+
+	<p>
+			<span class="quiet"><small> created: <%= time_ago_in_words(comment.created_at) %> ago,</small></span>
+			<span class="quiet"><small> updated: <%= time_ago_in_words(comment.updated_at) %> ago</small></span>
+	</p>
+
+     <% if logged_in? and(comment.user == current_user || current_user.admin?) %>
+     <td><%= link_to 'Edit', edit_tweet_comment_path(@tweet, comment), class: "btn btn-small btn-info"%></td>
+
+
+
+
+    <td> <%= button_to 'Delete', [@tweet, comment], :method => :delete, :confirm => "Are You sure?" %> </td>
+
+ <% end %>
+
+	</div>
+</div>
