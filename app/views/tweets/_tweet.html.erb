@@ -1,0 +1,43 @@
+<% obj.each do |tweet| %>
+
+<div class="row">
+
+<div class="col-xs-8 col-xs-offset-2">
+
+<div class="well well-lg">
+
+<div class="tweet-title">
+
+<%= link_to tweet.title, tweet_path(tweet) %>
+
+</div>
+
+<div class="tweet-body">
+
+<%= truncate(tweet.description, length: 100) %>
+
+</div>
+
+
+
+<div  class="tweet-meta-details">
+
+<small> Tweeted on : <%= time_ago_in_words(tweet.created_at) %>  ago,
+last updated: <%= time_ago_in_words(tweet.updated_at) %>
+
+
+</small>
+</div>
+
+
+  <h4>comments :  <%= tweet.comments.count %></h4><br>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<% end %>

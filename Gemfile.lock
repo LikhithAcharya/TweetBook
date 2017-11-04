@@ -48,6 +48,7 @@ GEM
       sass (>= 3.3.4)
     bootstrap-will_paginate (0.0.11)
       will_paginate
+    bootstrap_forms (4.0.1)
     builder (3.2.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -170,8 +171,9 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.11)
-  bootstrap-sass (~> 3.3.5)
+  bootstrap-sass (~> 3.3.7)
   bootstrap-will_paginate (~> 0.0.10)
+  bootstrap_forms
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)

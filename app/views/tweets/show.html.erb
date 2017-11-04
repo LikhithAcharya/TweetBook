@@ -1,28 +1,21 @@
 
-
+<br><br><br><br><br>
 
 <h2 align="center">Title: <%= @tweet.title %></h2>
 
 <div class="well col-xs-8 col-xs-offset-2">
 
 <h4 class="center description"><strong>Description:</strong></h4>
-
-<hr>
+<br>
 
 <%= simple_format(@tweet.description) %>
+<% if @tweet.categories.any? %>
+   <p> Categories: <%= render @tweet.categories %>. </p> 
+<% end %>
+ <div>
 
-
-
-
-
-
-
-<%= link_to "View all tweets", tweets_path, class: "btn btn-xs btn-success" %> <br>
-
-   <div>
-
-<small> Tweeted on : <%= time_ago_in_words(@tweet.created_at) %>  ago,
-  last updated: <%= time_ago_in_words(@tweet.updated_at) %>
+<small> Tweeted on : <%= time_ago_in_words(@tweet.created_at) %>  ago,<br>
+  last updated: <%= time_ago_in_words(@tweet.updated_at) %> <br>
 </small>
 
  </div>
@@ -31,22 +24,17 @@
 
       <div class="tweet-actions">
     <%= link_to "Edit this tweet", edit_tweet_path(@tweet), class: "btn btn-xs btn-primary" %>
-
-     <%= button_to "Delete this tweet", tweet_path(@tweet), :method => :delete, :confirm => "You sure?"%> <br>
-
+<br>
+     <%= button_to "Delete this tweet", tweet_path(@tweet), :method => :delete, :confirm => "You sure?"%>
+     <br>
   </div>
   <% end %>
-</div>
-
-
-
+  <%= link_to "View all tweets", tweets_path, class: "btn btn-xs btn-success" %> <br>
 </div>
 
 </div>
 
-
-
-
+</div>
 
 <div class="well col-xs-8 col-xs-offset-2">
 
