@@ -4,11 +4,10 @@ class CommentsController < ApplicationController
      @tweet = Tweet.find(params[:tweet_id])
      @comment = @tweet.comments.build(comment_params)
      @comment.user = current_user
-
  		if @comment.save
  			flash[:success] = "comment was created succesfully"
      	redirect_to tweet_path(@tweet)
-     else
+    else
  			flash[:danger] = "The comment could not be saved"
  			redirect_to tweet_path(@tweet)
  		end
