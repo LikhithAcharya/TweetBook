@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse " role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -17,49 +17,46 @@
             <ul class="nav navbar-nav">
 
                      <% if logged_in?  %>
-                           <li><%= link_to "Users" , users_path,class: "nav-icon"  %></li>
                             <li><%= link_to "Home" , root_path, class: "nav-icon" %></li>
+                           <li><%= link_to "Users" , users_path,class: "nav-icon"  %></li>
+
                             <li> <%= link_to "Tweets",  tweets_path, class: "nav-icon" %> </li>
                             <li><%= link_to "New tweet" , new_tweet_path, class: "nav-icon" %></li>
                             <li> <%= link_to "List of my tweets",  user_path(current_user), class: "nav-icon" %> </li>
                             <li><%= link_to "My Friends" , my_friends_path, class: "nav-icon" %></li>
-                            <li><%= link_to "Edit your profile", edit_user_path(current_user), class: "nav-icon"  %> </li>
+                            <li><%#= link_to "Edit your profile", edit_user_path(current_user), class: "nav-icon"  %> </li> <br>
                             <li><%= button_to "Logout", logout_path, :method => :delete, :confirm => "You sure?"%></li>
-                            <li class="dropdown">
-              <a href="#" class="dropdown-toggle nav-icon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Profile<span class="caret"></span></a>
 
-            </li>
                         <% else %>
                             <li><%= link_to "Home" , root_path, class: "nav-icon" %></li>
                             <li><%= link_to "Log in" , login_path, class: "nav-icon" %></li>
                             <li><%= link_to "sign up" , signup_path, class: "nav-icon" %></li>
                      <% end %>
-            </ul>
+                 </ul>
 
-
-
-
-                      <% if logged_in? and current_user.admin? %>
-                      <li role="separator" class="divider"></li>
-
-                      <% end %>
                       </ul>
                       </li>
 
                       <li class="dropdown">
-        <a href="#" class="dropdown-toggle nav-icon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
+
         <ul class="dropdown-menu">
-          <li><%= link_to "All Categories", categories_path, class: "nav-icon"  %> </li>
-              <% Category.all.each do |category| %>
-                  <li><%= link_to "#{category.name}", category_path(category) %></li>
-              <% end %>
-              <% if logged_in? and current_user.admin? %>
-           <li><%= link_to "Create new category" , new_category_path %></li>
-             <% end %>
-        </ul>
-      </li>
+
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
+
+        <% Category.all.each do |category| %>
+        <% if logged_in?  %>
+            <li ><%= link_to "#{category.name}", category_path(category) %></li>
+            <% end %>
+        <% end %>
+        <% if logged_in? and current_user.admin? %>
+     <li><%= link_to "Create new category" , new_category_path %></li>
+       <% end %>
+  </ul>
+</li>
 </nav>
+
+
+</div>

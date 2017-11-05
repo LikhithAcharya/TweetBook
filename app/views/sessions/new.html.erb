@@ -1,5 +1,5 @@
 <h1 align="center">Log in</h1>
-
+<br><br>
 <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
 
 <div class="form-group">
@@ -46,8 +46,5 @@
 
 <% end %>
 
-<div class="col-xs-4 col-xs-offset-4">
-
-[ <%= link_to "Cancel request and return to tweets listing", tweets_path %> ]
-
-</div>
+<br><br><br>
+<%= render 'layouts/footer' %> 

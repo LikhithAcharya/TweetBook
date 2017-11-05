@@ -1,22 +1,213 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
 
-//Category display
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ //navbar stuffs
 
-.cat-name {
+  #logo {
 
-background-color: red;
+  float: left;
 
-text-transform: uppercase;
+  font-size: 1.7em;
 
-letter-spacing: -1px;
+  color: #fff;
 
-font-weight: bold;
+  text-transform: uppercase;
+
+  letter-spacing: -1px;
+
+  font-weight: bold;
+
+  }
+
+  #logo:hover {
+
+  color: #fff;
+
+  text-decoration: none;
+
+  }
+
+  .center {
+
+  text-align: center;
+
+  }
+
+  .jumbotron {
+
+  background-image: asset-url('new_cover_page.png');
+
+  background-size: cover;
+
+  height: 550px;
+
+  }
+
+  .jumbotron h1 {
+
+  color: #fff;
+
+  text-align: center;
+
+  margin-bottom: 30px;
+
+  letter-spacing: -1px;
+
+  font-weight: bold;
+
+  }
+
+  .btn-xlarge {
+
+  font-size: 1.7em;
+
+  background-color: black;
+
+  }
+
+  footer {
+
+  margin-top: 45px;
+
+  padding-top: 5px;
+
+  border-top: 1px solid #eaeaea;
+
+  color: #777;
+
+  }
+
+  footer a:hover {
+
+  color: #222;
+
+  }
+
+  footer small {
+
+  float: left;
+
+  }
+
+  footer ul {
+
+  float: right;
+
+  list-style: none;
+
+  }
+
+  footer ul li {
+
+  float: left;
+
+  margin-left: 15px;
+
+  }
+
+
+ //show and edit page
+
+
+  .tweet-actions {
+
+  border-top: 1px solid #eaeaea;
+
+  padding-top: 5px;
+
+  }
+
+  .description {
+
+  margin-top: 0;
+
+  }
+
+ // index page
+  .tweet-title {
+
+ font-weight: bold;
+
+ font-size: 1.5em;
+
+ }
+
+ .tweet-body {
+
+ border-top: 1px solid #eaeaea;
+
+ padding-top: 15px;
+
+ padding-bottom: 15px;
+
+ }
+
+ // created and updated at
+ .tweet-meta-details {
+
+ border-top: 1px solid #eaeaea;
+
+ margin-top: 15px;
+
+ }
+
+
+ //
+ .listing {
+
+ list-style: none;
+
+ padding-left: 0;
+
+ }
+
+ //Category display
+
+ .cat-name {
+
+ background-color: red;
+
+ text-transform: uppercase;
+
+ letter-spacing: -1px;
+
+ font-weight: bold;
+
+ }
+
+ .input_checkbox input {
+
+ width: auto !important;
+
+ }
+
+//jumbotron
+
+
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: asset-url('logo.jpeg');
 
 }
 
-.input_checkbox input {
-
-width: auto !important;
-
+.background_image {
+  background:  url(../images/logo.jpeg);
 }

@@ -1,4 +1,4 @@
-<br><br><br><br><br>
+<br><br><br>
 
 <h1 align="center">Welcome to <%= @user.username %>'s page</h1>
 
@@ -9,16 +9,11 @@
 </div>
 
 </div>
-<div align="center">
 
-<%#= will_paginate @user_tweets %>
-
-</div>
 <h4 align="center"><%= @user.username %>'s tweets</h4>
 <%= render 'tweets/tweet', obj: @user_tweets %>
 
 
-
-<div align="center">
-   <%#= will_paginate @user_tweets %>
-</div>
+<br><br>
+<br><br><br><br>
+<%= render 'layouts/footer' %>
