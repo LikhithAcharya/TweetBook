@@ -13,4 +13,32 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  def not_friends_with?(friend_id)
+    friendships.where(friend_id: friend_id).count < 1
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+  def self.search(param)
+    return User.none if param.blank?
+
+    param.strip!
+    param.downcase!
+    (username_matches(param) + email_matches(param)).uniq
+  end
+
+  def self.username_matches(param)
+    matches('username', param)
+  end
+
+  def self.email_matches(param)
+    matches('email', param)
+  end
+
+  def self.matches(username, param)
+    where("lower(#{username}) like ?", "%#{param}%")
+  end
+
 end

@@ -24,17 +24,30 @@
 
 <% if logged_in? and current_user.admin? %>
 
-<li> <%= button_to "Delete this user", user_path(user), :method => :delete, :confirm => "You sure?"%>  </li>
+<ul> <%= button_to "Delete this user", user_path(user), :method => :delete, :confirm => "You sure?"%>  </ul>
 
 
 <% end %>
 
+<% if current_user.not_friends_with?(user.id) %>
+  <%= link_to "Add as my friend", add_friend_path(user: current_user, friend: user),
+                                    class: "btn btn-xs btn-success", method: :post %>
+<% else %>
+  <div >
+
+
+    <%= link_to "View Profile", user_path(user), class:"btn btn-primary btn-xs" %>
+    <br>
+    <%= button_to "Remove Friend", friendship_path(user), :method => :delete, :confirm => "You sure?"%> </td>
+    </div>
+<% end %>
 
 </div>
 
 </div>
 
 </ul>
+
 
 <% end %>
 <%= will_paginate %>

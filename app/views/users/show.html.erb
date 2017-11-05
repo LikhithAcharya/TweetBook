@@ -9,11 +9,16 @@
 </div>
 
 </div>
+<div align="center">
 
+<%#= will_paginate @user_tweets %>
+
+</div>
 <h4 align="center"><%= @user.username %>'s tweets</h4>
-<%= render 'tweets/tweet', obj: @user.tweets %>
-<div class="center">
+<%= render 'tweets/tweet', obj: @user_tweets %>
 
-<
 
+
+<div align="center">
+   <%#= will_paginate @user_tweets %>
 </div>
