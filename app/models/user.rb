@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
 
     has_many :tweets, dependent: :destroy
     has_many :comments
-
+    has_many :friendships
+    has_many :friends, through: :friendships
   before_save { self.email = email.downcase }
 
   validates :username, presence: true,uniqueness: { case_sensitive: false },length: { minimum: 3, maximum: 25 }
