@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-// require turbolinks
+//= require bootstrap-sprockets
+//= require turbolinks
 //= require_tree .
 
 var init_friend_lookup;
